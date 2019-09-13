@@ -71,7 +71,7 @@ let nepal = {
     }
 }
 */
-let nepal = {
+let nepal = {     //object literal
     // add property
     mountains: ['Everest', 'Fish Tail', 'Annapurna'],
     // add variable method
@@ -113,7 +113,7 @@ console.log(morning, ' - ' ,afternoon);
 let uniStudent = ({name, university}) => {      //pass destructing properties to function parameters
     console.log(`${name} from ${university}`);
 }
-//https://medium.com/@luke_smaki/javascript-es6-classes-8a34b0a6720a
+
 //object
 uniStudent({
     name: 'Matthew',
@@ -173,3 +173,49 @@ var rivers = ['Sunkoshi','Tamakoshi','Saptakoshi' ];
 var [first, ...rest] = rivers;
 console.log(first);
 console.log(rest);
+
+//https://medium.com/@luke_smaki/javascript-es6-classes-8a34b0a6720a
+//9 classes
+//old method using function as object
+function Holiday(destination, days){
+    this.destination = destination
+    this.days = days
+}
+
+Holiday.prototype.info = function() {
+    console.log(this.destination + " | " + this.days + " days");
+}
+
+var nepalobject = new Holiday("Nepal", 30);
+console.log(nepalobject.info());
+
+//In ES6
+//Superclass
+class HolidayClass {
+    constructor(destination, days) {
+        this.destination = destination
+        this.days = days
+    }
+    info() {
+        console.log(`${this.desination} will take ${this.days} days`);
+    }
+}
+
+//subclass
+class Expedition extends Holiday {
+    constructor(desination, days, gear) {
+        super(desination, days)
+        this.gear = gear
+    }
+
+    info() {
+        super.info();
+        console.log(`Bring your ${this.gear.join(" and your")}`)
+    }
+}
+console.log(HolidayClass.prototype)
+const trip = new HolidayClass("Kathandu, Nepal", 30);
+console.log(trip.info());
+
+const tripWithGear = new Expedition("Everest", 30, ["Sunglasses", "Flags", "Camera"]);
+console.log(tripWithGear.info())
