@@ -57,7 +57,7 @@ function sayhi() {
 console.log(this);   // sayhi() is the function belong to window object
 
 // create an object containing array properties and method
-/*
+/* object literal
 let nepal = {
     // add property
     mountains: ['Everest', 'Fish Tail', 'Annapurna'],
@@ -85,3 +85,45 @@ let nepal = {
 }
 alert(nepal.mountains);
 nepal.printWithDash();
+
+//6 destrusting object - in ES6
+//structing an object
+let thingsToDo = {
+    morning: "Exercise",
+    afternoon: "Work",
+    evening: "Code",
+    night: ['sleep','Dream']
+}
+//before destructing
+console.log(thingsToDo.morning, ' - ' , thingsToDo.afternoon);
+// after destructing
+let {morning, afternoon} = thingsToDo;  
+console.log(morning, ' - ' ,afternoon);
+
+//function
+//let uniStudent = student => {
+//    console.log(`${student.name} from ${student.university}`);
+//}
+
+//let uniStudent = student => {
+//    let{name, university} = student;
+//   console.log(`${name} from ${university}`);
+//}
+
+let uniStudent = ({name, university}) => {      //pass destructing properties to function parameters
+    console.log(`${name} from ${university}`);
+}
+//https://medium.com/@luke_smaki/javascript-es6-classes-8a34b0a6720a
+//object
+uniStudent({
+    name: 'Matthew',
+    university: 'Unversity of New South Wales'
+});
+
+//7 destruct array
+//old method
+let [firstMountain]=['Everest', 'Fish Tail', 'Annapurna'];
+console.log(firstMountain);
+//new method using destructing
+let [, , firstMountain]=['Everest', 'Fish Tail', 'Annapurna'];
+console.log(firstMountain);
