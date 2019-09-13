@@ -57,6 +57,7 @@ function sayhi() {
 console.log(this);   // sayhi() is the function belong to window object
 
 // create an object containing array properties and method
+/*
 let nepal = {
     // add property
     mountains: ['Everest', 'Fish Tail', 'Annapurna'],
@@ -69,6 +70,18 @@ let nepal = {
         }, 3000)
     }
 }
-
+*/
+let nepal = {
+    // add property
+    mountains: ['Everest', 'Fish Tail', 'Annapurna'],
+    // add variable method
+    printWithDash: function() {
+        console.log('Inside printWithDash', this);   //point to nepal object
+        setTimeout(() => {
+            console.log('Inside setTimeout', this);  //fix the problem to point to nepal object
+            console.log(this.mountains.join(" - "));
+        }, 3000)
+    }
+}
 alert(nepal.mountains);
 nepal.printWithDash();
