@@ -122,8 +122,32 @@ uniStudent({
 
 //7 destruct array
 //old method
-let [firstMountain]=['Everest', 'Fish Tail', 'Annapurna'];
-console.log(firstMountain);
+//let [firstMountain]=['Everest', 'Fish Tail', 'Annapurna'];
+//console.log(firstMountain);
 //new method using destructing
 let [, , firstMountain]=['Everest', 'Fish Tail', 'Annapurna'];
 console.log(firstMountain);
+
+//8 restructing is used to convert property and method into an object
+var name = 'Everest';
+var height = 8848;
+var output = function() {
+    console.log(`Mt. ${this.name} is ${this.height} meter tall`);
+}
+var adventureClimbing = {name, height, output};     //build an object by restructing method
+console.log(adventureClimbing);
+adventureClimbing.output();
+
+//old way
+var adventureClimbing = {
+    name: 'Everest',
+    height: 8848,
+    output() {       //in ES6
+        console.log(`Mt. ${this.name} is ${this.height} meter tall`);
+    }
+    //output: function() {
+    //    console.log(`Mt. ${this.name} is ${this.height} meter tall`);
+    //}
+};
+
+//8 Spread and rest operator
