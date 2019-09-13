@@ -49,3 +49,26 @@ let createBlog = (title, body) => {
 };
 
 createBlog('Blog title', 'Blog body');
+
+//5 Use this keyworld to make the function to window object
+function sayhi() {
+
+}
+console.log(this);   // sayhi() is the function belong to window object
+
+// create an object containing array properties and method
+let nepal = {
+    // add property
+    mountains: ['Everest', 'Fish Tail', 'Annapurna'],
+    // add variable method
+    printWithDash: function() {
+        console.log('Inside printWithDash', this);   //point to nepal object
+        setTimeout(function() {
+            console.log('Inside setTimeout', this);  //point to window object - this is the problem
+            console.log(this.mountains.join(" - "));
+        }, 3000)
+    }
+}
+
+alert(nepal.mountains);
+nepal.printWithDash();
